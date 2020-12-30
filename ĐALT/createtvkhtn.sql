@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      Microsoft SQL Server 2012                    */
-/* Created on:     12/30/2020 4:53:44 PM                        */
+/* Created on:     12/30/2020 5:20:17 PM                        */
 /*==============================================================*/
 
 
@@ -129,8 +129,8 @@ go
 create table CANBO (
    IDDG                 int                  not null,
    MACB                 int                  not null,
-   LOAIHINHDT           varchar(100)         not null,
-   TRUONGCT             varchar(200)         not null,
+   LOAIHINHDT           nvarchar(100)        not null,
+   TRUONGCT             nvarchar(200)        not null,
    constraint PK_CANBO primary key (IDDG)
 )
 go
@@ -140,11 +140,11 @@ go
 /*==============================================================*/
 create table DOCGIA (
    IDDG                 int                  not null,
-   TENDG                varchar(50)          not null,
+   TENDG                nvarchar(50)         not null,
    SDTDG                int                  not null,
-   EMAILDG              varchar(50)          not null,
+   EMAILDG              nvarchar(50)         not null,
    THAMGIALOP           bit                  not null,
-   NGAYHETHAN           datetime             not null,
+   NGAYHETHAN           date                 not null,
    constraint PK_DOCGIA primary key (IDDG)
 )
 go
@@ -165,7 +165,7 @@ go
 create table KHUNGPHANLOAI (
    IDKHUNGPL            int                  not null,
    IDNHOMSACH           smallint             null,
-   TENKHUNGPL           varchar(100)         not null,
+   TENKHUNGPL           nvarchar(100)        not null,
    constraint PK_KHUNGPHANLOAI primary key (IDKHUNGPL)
 )
 go
@@ -175,7 +175,7 @@ go
 /*==============================================================*/
 create table NHOMSACH (
    IDNHOMSACH           smallint             not null,
-   TENNHOMSACH          varchar(100)         not null,
+   TENNHOMSACH          nvarchar(100)        not null,
    constraint PK_NHOMSACH primary key (IDNHOMSACH)
 )
 go
@@ -185,9 +185,9 @@ go
 /*==============================================================*/
 create table PHIEUMUON (
    IDPHIEU              int                  not null,
-   NGAYMUON             datetime             not null,
+   NGAYMUON             date                 not null,
    GIAHAN               bit                  not null,
-   NGAYTRA              datetime             null,
+   NGAYTRA              date                 null,
    IDDG                 int                  not null,
    constraint PK_PHIEUMUON primary key (IDPHIEU)
 )
@@ -208,13 +208,13 @@ go
 /*==============================================================*/
 create table SACH (
    IDSACH               int                  not null,
-   TENSACH              varchar(150)         not null,
+   TENSACH              nvarchar(150)        not null,
    TINHTRANGSACH        bit                  not null,
    TAP                  smallint             not null,
    CUONTHU              smallint             not null,
-   TACGIA               varchar(50)          not null,
+   TACGIA               nvarchar(50)         not null,
    NGAYXUATBAN          date                 null,
-   NHAXUATBAN           varchar(50)          null,
+   NHAXUATBAN           nvarchar(50)         null,
    CAPPHEPMUON          bit                  not null,
    IDKHUNGPL            int                  not null,
    constraint PK_SACH primary key (IDSACH)
