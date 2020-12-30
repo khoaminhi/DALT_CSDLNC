@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      Microsoft SQL Server 2012                    */
-/* Created on:     12/30/2020 8:30:48 PM                        */
+/* Created on:     12/30/2020 10:22:45 PM                       */
 /*==============================================================*/
 
 
@@ -233,6 +233,7 @@ create table PHIEUMUON (
    IDDG                 int                  not null,
    NGAYMUON             date                 not null,
    GIAHAN               bit                  not null,
+   HETHAN               date                 null,
    constraint PK_PHIEUMUON primary key (IDPHIEUMUON)
 )
 go
