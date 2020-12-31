@@ -253,7 +253,7 @@ create table SACH (
    IDPHIEUMUON          int                  null,
    IDPHIEUTRA           int                  null,
    TENSACH              nvarchar(150)        not null,
-   TINHTRANGSACH        NVARCHAR(500)                  not null,
+   TINHTRANGSACH        NVARCHAR(500)        null,
    TAP                  smallint             not null,
    TACGIA               nvarchar(50)         not null,
    NGAYXUATBAN          date                 null,
