@@ -1,42 +1,21 @@
 /*==============================================================*/
 /* DBMS name:      Microsoft SQL Server 2012                    */
-/* Created on:     12/30/2020 10:22:45 PM                       */
+/* Created on:     12/31/2020 10:30:24 AM                       */
 /*==============================================================*/
 
+USE master
+GO
+
+CREATE DATABASE QLTVKHTN
+GO
+USE QLTVKHTN
+GO
 
 if exists (select 1
    from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
    where r.fkeyid = object_id('CANBO') and o.name = 'FK_CANBO_REFERENCE_DOCGIA')
 alter table CANBO
    drop constraint FK_CANBO_REFERENCE_DOCGIA
-go
-
-if exists (select 1
-   from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
-   where r.fkeyid = object_id('CTPHIEUMUA') and o.name = 'FK_CTPHIEUM_REFERENCE_PHIEUMUO')
-alter table CTPHIEUMUA
-   drop constraint FK_CTPHIEUM_REFERENCE_PHIEUMUO
-go
-
-if exists (select 1
-   from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
-   where r.fkeyid = object_id('CTPHIEUMUA') and o.name = 'FK_CTPHIEUM_REFERENCE_SACH')
-alter table CTPHIEUMUA
-   drop constraint FK_CTPHIEUM_REFERENCE_SACH
-go
-
-if exists (select 1
-   from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
-   where r.fkeyid = object_id('CTPHIEUTRA') and o.name = 'FK_CTPHIEUT_REFERENCE_PHIEUTRA')
-alter table CTPHIEUTRA
-   drop constraint FK_CTPHIEUT_REFERENCE_PHIEUTRA
-go
-
-if exists (select 1
-   from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
-   where r.fkeyid = object_id('CTPHIEUTRA') and o.name = 'FK_CTPHIEUT_REFERENCE_SACH')
-alter table CTPHIEUTRA
-   drop constraint FK_CTPHIEUT_REFERENCE_SACH
 go
 
 if exists (select 1
@@ -55,6 +34,20 @@ go
 
 if exists (select 1
    from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
+   where r.fkeyid = object_id('PHIEUMAT') and o.name = 'FK_PHIEUMAT_REFERENCE_DOCGIA')
+alter table PHIEUMAT
+   drop constraint FK_PHIEUMAT_REFERENCE_DOCGIA
+go
+
+if exists (select 1
+   from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
+   where r.fkeyid = object_id('PHIEUMAT') and o.name = 'FK_PHIEUMAT_REFERENCE_SACH')
+alter table PHIEUMAT
+   drop constraint FK_PHIEUMAT_REFERENCE_SACH
+go
+
+if exists (select 1
+   from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
    where r.fkeyid = object_id('PHIEUMUON') and o.name = 'FK_PHIEUMUO_REFERENCE_DOCGIA')
 alter table PHIEUMUON
    drop constraint FK_PHIEUMUO_REFERENCE_DOCGIA
@@ -65,6 +58,20 @@ if exists (select 1
    where r.fkeyid = object_id('PHIEUTRA') and o.name = 'FK_PHIEUTRA_REFERENCE_PHIEUMUO')
 alter table PHIEUTRA
    drop constraint FK_PHIEUTRA_REFERENCE_PHIEUMUO
+go
+
+if exists (select 1
+   from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
+   where r.fkeyid = object_id('SACH') and o.name = 'FK_SACH_REFERENCE_PHIEUMUO')
+alter table SACH
+   drop constraint FK_SACH_REFERENCE_PHIEUMUO
+go
+
+if exists (select 1
+   from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
+   where r.fkeyid = object_id('SACH') and o.name = 'FK_SACH_REFERENCE_PHIEUTRA')
+alter table SACH
+   drop constraint FK_SACH_REFERENCE_PHIEUTRA
 go
 
 if exists (select 1
@@ -90,20 +97,6 @@ go
 
 if exists (select 1
             from  sysobjects
-           where  id = object_id('CTPHIEUMUA')
-            and   type = 'U')
-   drop table CTPHIEUMUA
-go
-
-if exists (select 1
-            from  sysobjects
-           where  id = object_id('CTPHIEUTRA')
-            and   type = 'U')
-   drop table CTPHIEUTRA
-go
-
-if exists (select 1
-            from  sysobjects
            where  id = object_id('DOCGIA')
             and   type = 'U')
    drop table DOCGIA
@@ -121,6 +114,13 @@ if exists (select 1
            where  id = object_id('NHOMSACH')
             and   type = 'U')
    drop table NHOMSACH
+go
+
+if exists (select 1
+            from  sysobjects
+           where  id = object_id('PHIEUMAT')
+            and   type = 'U')
+   drop table PHIEUMAT
 go
 
 if exists (select 1
@@ -171,26 +171,6 @@ create table CANBO (
 go
 
 /*==============================================================*/
-/* Table: CTPHIEUMUA                                            */
-/*==============================================================*/
-create table CTPHIEUMUA (
-   IDSACH               int                  not null,
-   IDPHIEUMUON          int                  not null,
-   constraint PK_CTPHIEUMUA primary key (IDSACH, IDPHIEUMUON)
-)
-go
-
-/*==============================================================*/
-/* Table: CTPHIEUTRA                                            */
-/*==============================================================*/
-create table CTPHIEUTRA (
-   IDPHIEUTRA           int                  not null,
-   IDSACH               int                  not null,
-   constraint PK_CTPHIEUTRA primary key (IDPHIEUTRA, IDSACH)
-)
-go
-
-/*==============================================================*/
 /* Table: DOCGIA                                                */
 /*==============================================================*/
 create table DOCGIA (
@@ -226,6 +206,20 @@ create table NHOMSACH (
 go
 
 /*==============================================================*/
+/* Table: PHIEUMAT                                              */
+/*==============================================================*/
+create table PHIEUMAT (
+   IDDG                 int                  not null,
+   IDSACH               int                  not null,
+   CUONTHU              smallint             not null,
+   NGAYGHINHAN          date                 not null,
+   TIENPHAT             money                not null,
+   NGUOIGHINHAN         nvarchar(50)         not null,
+   constraint PK_PHIEUMAT primary key (IDDG, IDSACH, CUONTHU)
+)
+go
+
+/*==============================================================*/
 /* Table: PHIEUMUON                                             */
 /*==============================================================*/
 create table PHIEUMUON (
@@ -254,16 +248,18 @@ go
 /*==============================================================*/
 create table SACH (
    IDSACH               int                  not null,
+   CUONTHU              smallint             not null,
    IDKHUNGPL            int                  not null,
+   IDPHIEUMUON          int                  null,
+   IDPHIEUTRA           int                  null,
    TENSACH              nvarchar(150)        not null,
    TINHTRANGSACH        bit                  not null,
    TAP                  smallint             not null,
-   CUONTHU              smallint             not null,
    TACGIA               nvarchar(50)         not null,
    NGAYXUATBAN          date                 null,
    NHAXUATBAN           nvarchar(50)         null,
    CAPPHEPMUON          bit                  not null,
-   constraint PK_SACH primary key (IDSACH)
+   constraint PK_SACH primary key (IDSACH, CUONTHU)
 )
 go
 
@@ -292,26 +288,6 @@ alter table CANBO
       references DOCGIA (IDDG)
 go
 
-alter table CTPHIEUMUA
-   add constraint FK_CTPHIEUM_REFERENCE_PHIEUMUO foreign key (IDPHIEUMUON)
-      references PHIEUMUON (IDPHIEUMUON)
-go
-
-alter table CTPHIEUMUA
-   add constraint FK_CTPHIEUM_REFERENCE_SACH foreign key (IDSACH)
-      references SACH (IDSACH)
-go
-
-alter table CTPHIEUTRA
-   add constraint FK_CTPHIEUT_REFERENCE_PHIEUTRA foreign key (IDPHIEUTRA)
-      references PHIEUTRA (IDPHIEUTRA)
-go
-
-alter table CTPHIEUTRA
-   add constraint FK_CTPHIEUT_REFERENCE_SACH foreign key (IDSACH)
-      references SACH (IDSACH)
-go
-
 alter table DOCGIA
    add constraint FK_DOCGIA_REFERENCE_THETHUVI foreign key (IDTHE)
       references THETHUVIEN (IDTHE)
@@ -322,6 +298,16 @@ alter table KHUNGPHANLOAI
       references NHOMSACH (IDNHOMSACH)
 go
 
+alter table PHIEUMAT
+   add constraint FK_PHIEUMAT_REFERENCE_DOCGIA foreign key (IDDG)
+      references DOCGIA (IDDG)
+go
+
+alter table PHIEUMAT
+   add constraint FK_PHIEUMAT_REFERENCE_SACH foreign key (IDSACH, CUONTHU)
+      references SACH (IDSACH, CUONTHU)
+go
+
 alter table PHIEUMUON
    add constraint FK_PHIEUMUO_REFERENCE_DOCGIA foreign key (IDDG)
       references DOCGIA (IDDG)
@@ -330,6 +316,16 @@ go
 alter table PHIEUTRA
    add constraint FK_PHIEUTRA_REFERENCE_PHIEUMUO foreign key (IDPHIEUMUON)
       references PHIEUMUON (IDPHIEUMUON)
+go
+
+alter table SACH
+   add constraint FK_SACH_REFERENCE_PHIEUMUO foreign key (IDPHIEUMUON)
+      references PHIEUMUON (IDPHIEUMUON)
+go
+
+alter table SACH
+   add constraint FK_SACH_REFERENCE_PHIEUTRA foreign key (IDPHIEUTRA)
+      references PHIEUTRA (IDPHIEUTRA)
 go
 
 alter table SACH

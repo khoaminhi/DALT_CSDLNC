@@ -4,7 +4,8 @@
 
 <Workspace>
 	<Local Expanded="Yes">
-		<Model Expanded="Yes" ID="{E1606896-3BB5-47EB-B615-0B6A82A4F7EB}" Name="ThuvienKHTN" Type="{FF4B6538-9856-42CF-B9B9-304ED370CEAA}" URL="file:///%_HOME%/@CSDL-NC/DALT_CSDLNC/ThuvienKHTN/ThuvienKHTN.prj"/>
+		<Model Expanded="Yes" ID="{E1606896-3BB5-47EB-B615-0B6A82A4F7EB}" Loaded="No" Name="ThuvienKHTN" Type="{FF4B6538-9856-42CF-B9B9-304ED370CEAA}" URL="file:///%_HOME%/@CSDL-NC/DALT_CSDLNC/ThuvienKHTN/ThuvienKHTN.prj"/>
+		<Model Expanded="Yes" ID="{4DCF0F5C-34FF-442D-9BD5-45066E517851}" Name="physical_tvkhtn" Selected="Yes" Type="{CDE44E21-9669-11D1-9914-006097355D9B}" URL="file:///%_HOME%/@CSDL-NC/DALT_CSDLNC/ThuvienKHTN/physical_tvkhtn.pdm"/>
 	</Local>
 	<BrowserModule Name="Repository"/>
 </Workspace>
