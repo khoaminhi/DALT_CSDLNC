@@ -417,7 +417,7 @@ INSERT dbo.DOCGIA
 )
 VALUES
 (   1,   -- IDDG - int
-    18120418,   -- IDTHE - int
+    1,   -- IDTHE - int
     N'Phạm Minh Khoa', -- TENDG - nvarchar(50)
     0336069400,   -- SDTDG - int
     N'minhkhoa031099@gmail.com', -- EMAILDG - nvarchar(50)
@@ -426,8 +426,8 @@ VALUES
 	(2, 2, N'Nguyễn Văn Hảo', 0123456789, N'18120385@student.hcmus.edu.vn', 1),
 	(3, 3, N'Huỳnh Hòa', 0123456788, N'18120338@student.hcmus.edu.vn', 1),
 	(4, 4, N'Nguyễn Đức Minh', 0123456787, N'18120385@student.hcmus.edu.vn', 1),
-	(5, 5, N'Phan Long Hiếu', 0123456786, N'18120385@student.hcmus.edu.vn', 0),
-	(6, 6, N'Nguyễn Ngọc Ngạn', 0123456783, N'18120385@student.hcmus.edu.vn', 0),
+	(5, 5, N'Phan Long Hiếu', 0123456786, N'18120385@student.hcmus.edu.vn', 1),
+	(6, 6, N'Nguyễn Ngọc Ngạn', 0123456783, N'18120385@student.hcmus.edu.vn', 1),
 	(7, 6, N'An Dương Đức', 0123456785, N'18120385@student.hcmus.edu.vn', 1),
 	(8, 7, N'Chí Cẩm Hào', 0123456784, N'18120385@student.hcmus.edu.vn', 1),
 	(9, 9, N'Trần Đức Lương', 0123453789, N'tdluong@fit.hcmus.edu.vn', 1),
@@ -493,7 +493,7 @@ VALUES
 	(4, 3, DATEADD(YEAR, -1, GETDATE()), 0, DATEADD(WEEK, 2, DATEADD(YEAR, -1, GETDATE()))),
 	(5, 4, GETDATE(), 0,DATEADD(WEEK, 2, GETDATE())),
 	(6, 5, DATEADD(WEEK, -5, GETDATE()), 0,DATEADD(WEEK, -3, GETDATE())), --Làm mất sách
-	(7, 6, GETDATE(), 0,DATEADD(WEEK, 2, GETDATE())),
+	(7, 6, 2020-11-15, 0,2020-11-29),
 	(8, 11, GETDATE(), 1,DATEADD(WEEK, 3, GETDATE())),
 	(9, 9, DATEADD(YEAR, -2, GETDATE()), 0, DATEADD(WEEK, 2, DATEADD(YEAR, -2, GETDATE())))
 GO
@@ -554,7 +554,7 @@ VALUES
 	(32436, 1, 24673, NULL, 5, N'Thiên chúa giáo phát triển ở Mỹ như thế nào đầu những năm 1910',NULL,1, N'Henry Atona', DATEADD(DAY, -800, GETDATE()), N'Tuổi Trẻ',1),
 	(421345, 1, 4782, 8, NULL, N'Tiếng Việt Quảng Ngãi phong phú',NULL,1, N'Ngô Kiệt', DATEADD(DAY, -400, GETDATE()), N'Hồng Ân',1),
 	(52673, 1, 684, 7, NULL, N'Công nghệ ô tô Việt Nam hiện nay',NULL,1, N'Trần Tuấn', DATEADD(DAY, -100, GETDATE()), N'Tuổi Trẻ',1),
-	(6554864, 1, 62345, NULL, NULL, N'Tàu Thần Châu 2 của Trung Quốc',NULL,1, N'Lâm Quách', DATEADD(YEAR, -4, GETDATE()), N'Tuổi Trẻ',1),
+	(6554864, 1, 62345, NULL, NULL, N'Tàu Thần Châu 2 của Trung Quốc',NULL,1, N'Lâm Quách', DATEADD(YEAR, -4, GETDATE()), N'Tuổi Trẻ',0),
 	(723453, 1, 93453, 1, NULL, N'Quá trình thuần phục và huấn luyện voi chiến của Hai bà Trưng',NULL,1, N'Phạm Nguyên', DATEADD(WEEK, -300, GETDATE()), N'Tuổi Trẻ',1),
 	(8245, 1, 878, 5, NULL, N'Những nhà văn lớn trong phong trào thơ mới ở Việt Nam',NULL,1, N'Hồ Nguyên Định', DATEADD(WEEK, -76, GETDATE()), N'Tuổi Trẻ',1),
 	(92, 1, 835, NULL, NULL, N'Tuyển tập những bài thơ hay nhất của thơ Việt Nam',NULL,1, N'Đào Huy', DATEADD(DAY, -683, GETDATE()), N'Tuổi Trẻ',1),
