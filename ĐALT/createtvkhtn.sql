@@ -174,7 +174,7 @@ go
 /* Table: DOCGIA                                                */
 /*==============================================================*/
 create table DOCGIA (
-   IDDG                 int                  not null,
+   IDDG		           int                  not null IDENTITY(1,1),
    IDTHE                int                  not null,
    TENDG                nvarchar(50)         not null,
    SDTDG                int                  not null,
@@ -188,7 +188,7 @@ go
 /* Table: KHUNGPHANLOAI                                         */
 /*==============================================================*/
 create table KHUNGPHANLOAI (
-   IDKHUNGPL            int                  not null,
+   IDKHUNGPL            int                  not NULL IDENTITY(1,1),
    IDNHOMSACH           smallint             not null,
    TENKHUNGPL           nvarchar(100)        not null,
    constraint PK_KHUNGPHANLOAI primary key (IDKHUNGPL)
@@ -199,7 +199,7 @@ go
 /* Table: NHOMSACH                                              */
 /*==============================================================*/
 create table NHOMSACH (
-   IDNHOMSACH           smallint             not null,
+   IDNHOMSACH           smallint             not NULL IDENTITY(1,1),
    TENNHOMSACH          nvarchar(100)        not null,
    constraint PK_NHOMSACH primary key (IDNHOMSACH)
 )
@@ -223,7 +223,7 @@ go
 /* Table: PHIEUMUON                                             */
 /*==============================================================*/
 create table PHIEUMUON (
-   IDPHIEUMUON          int                  not null,
+   IDPHIEUMUON          int                  not NULL IDENTITY(1,1),
    IDDG                 int                  not null,
    NGAYMUON             date                 not null,
    GIAHAN               bit                  not null,
@@ -236,7 +236,7 @@ go
 /* Table: PHIEUTRA                                              */
 /*==============================================================*/
 create table PHIEUTRA (
-   IDPHIEUTRA           int                  not null,
+   IDPHIEUTRA           int                  not NULL IDENTITY(1,1),
    IDPHIEUMUON          int                  not null,
    NGAYTRA              date                 null,
    constraint PK_PHIEUTRA primary key (IDPHIEUTRA)
@@ -247,13 +247,13 @@ go
 /* Table: SACH                                                  */
 /*==============================================================*/
 create table SACH (
-   IDSACH               int                  not null,
+   IDSACH               int                  not NULL IDENTITY(1,1),
    CUONTHU              smallint             not null,
    IDKHUNGPL            int                  not null,
    IDPHIEUMUON          int                  null,
    IDPHIEUTRA           int                  null,
    TENSACH              nvarchar(150)        not null,
-   TINHTRANGSACH        NVARCHAR(500)        null,
+   TINHTRANGSACH        NVARCHAR(500)                  not null,
    TAP                  smallint             not null,
    TACGIA               nvarchar(50)         not null,
    NGAYXUATBAN          date                 null,
@@ -277,7 +277,7 @@ go
 /* Table: THETHUVIEN                                            */
 /*==============================================================*/
 create table THETHUVIEN (
-   IDTHE                int                  not null,
+   IDTHE                int                  not NULL IDENTITY(1,1),
    NGAYHETHAN           date                 null,
    constraint PK_THETHUVIEN primary key (IDTHE)
 )
