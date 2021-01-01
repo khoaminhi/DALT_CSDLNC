@@ -87,3 +87,10 @@ EXEC dbo.sp_docThongTinSach @idSach = 32436, -- int
                             @cuonThu = 1 -- smallint
 GO
 
+SELECT 
+	so.name AS tablenam,
+	si.name AS indexname,
+	si.type_desc AS indextype
+FROM sys.indexes si JOIN sys.objects so ON si.object_id = so.object_id
+WHERE so.type = 'U' AND si.name IS NOT NULL 
+ORDER BY so.name, si.type
